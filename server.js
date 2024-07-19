@@ -10,6 +10,7 @@ const session = require('express-session');
 
 /* ------------------------------- CONTROLLERS ------------------------------ */
 const authController = require('./controllers/auth.js');
+const communityController = require('./controllers/community.js')
 const workoutsController = require('./controllers/workouts.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const isSignedIn = require('./middleware/is-signed-in.js');
@@ -44,6 +45,7 @@ app.use(passUserToView);
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/workouts', workoutsController);
+app.use('/community', communityController)
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
