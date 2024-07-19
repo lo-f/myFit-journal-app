@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Show View</h1>
+    <a href="/users/<%= user._id %>/workouts/<%= workout._id %>/edit"><button>Edit</button></a>
+    <form
+        action="/users/<%= user._id %>/workouts/<%= workout._id %>?_method=DELETE"
+        method="POST"
+    >
+        <button type="submit">Delete Workout</button>
+    </form>
+</body>
+</html>

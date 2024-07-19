@@ -5,11 +5,6 @@ const workoutSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  time: Number,
-  exercise: {
-    type: String,
-    required: true,
-  },
 });
 
 const userSchema = mongoose.Schema({
