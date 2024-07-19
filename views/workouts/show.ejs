@@ -6,7 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Show View</h1>
+    <h1><%= workout.date %></h1>
+    <p1><%= workout.time %></p1>
+
+
+
+
     <a href="/users/<%= user._id %>/workouts/<%= workout._id %>/edit"><button>Edit</button></a>
     <form
         action="/users/<%= user._id %>/workouts/<%= workout._id %>?_method=DELETE"
