@@ -25,6 +25,24 @@ router.get('/new', async (req, res) => {
     res.render('workouts/new.ejs')
 })
 
+
+
+
+
+router.get('/new/run', async (req, res) => {
+    res.render('workouts/new/run.ejs')
+})
+
+router.get('/new/weightlifting', async (req, res) => {
+    res.render('workouts/new/weightlifting.ejs')
+})
+
+
+
+
+
+
+
 router.post('/', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);

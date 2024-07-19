@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 
+const runSchema = new mongoose.Schema({
+
+});
+
+const weightliftingSchema = new mongoose.Schema({
+
+});
+
 const workoutSchema = new mongoose.Schema({
   date: {
     type: Number,

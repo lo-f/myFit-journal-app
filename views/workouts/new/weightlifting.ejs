@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>weightlifting view</h1>
+    <%- include('../../partials/_navbar.ejs') %>
+    
+    <form action="/users/<%= user._id %>/workouts" method="POST">
+        <label for="date">date:</label>
+        <input type="text" id="date" name="date"/>
+
+        <label for="time">time:</label>
+        <input type="text" id="time" name="time"/>
+        
+        <label for="exercise">exercise:</label>
+        <input type="text" id="exercise" name="exercise"/>
+        
+        <label for="notes">notes:</label>
+        <input type="text" id="notes" name="notes"/>
+        
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html>
