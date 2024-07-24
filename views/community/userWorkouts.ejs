@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>community All Workouts view</h1>
+    <ul>
+        <% workouts.forEach(workout => { %>
+          <li>
+            <strong>
+                <a href="/community/<%= user._id %>/<%= workout._id %>"><%= workout.type %></a>
+            </strong> - <%= workout.date.toLocaleDateString() %>
+        </li>
+
+        <% }); %>
+      </ul>
+</body>
+</html>

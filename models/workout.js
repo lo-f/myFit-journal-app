@@ -33,5 +33,4 @@ const workoutSchema = new mongoose.Schema({
 
 const Workout = mongoose.model('Workout', workoutSchema)
 
-// const User = mongoose.model('User', userSchema);
 module.exports = Workout;

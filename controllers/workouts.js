@@ -11,7 +11,7 @@ const isSignedIn = require('../middleware/is-signed-in.js');
 /* ---------------------------------- INDEX --------------------------------- */
 router.get('/', async (req, res) => {
     try {
-        const workouts = await Workout.find({});
+        const workouts = await Workout.find({ owner: req.session.user._id });
         res.render('workouts/index.ejs', {
             workouts,
         })
@@ -28,7 +28,7 @@ router.get('/new', async (req, res) => {
 
 /* ------------------------------- New Workout ------------------------------ */
 router.post('/', async (req, res) => {
-    const { type, runDate, runTime, distance, wtDate, wtTime, exercise, notes, currentUser, weight } = req.body;
+    const { type, distance, notes, weight } = req.body;
     try {
         const currentUser = await User.findById(req.session.user._id);
         if (!currentUser) {
@@ -64,6 +64,7 @@ router.get('/:workoutId', async (req, res) => {
 })
 
 /* --------------------------------- DELETE: -------------------------------- */
+
 router.delete('/:workoutId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);
@@ -79,6 +80,7 @@ router.delete('/:workoutId', async (req, res) => {
 });
 
 /* ---------------------------------- EDIT ---------------------------------- */
+
 router.get('/:workoutId/edit', async (req, res) => {
     const { type, distance, weight, notes } = req.body;
     const workoutId = req.params.id;

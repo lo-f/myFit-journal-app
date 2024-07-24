@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
+const Workout = require('../models/workout.js')
 const User = require('../models/user.js');
 
-/* --------------------------------- LANDING -------------------------------- */
+/* ------------------------------- USERS INDEX ------------------------------ */
 
 router.get('/', async (req, res) => {
     try {
@@ -17,17 +17,38 @@ router.get('/', async (req, res) => {
     }
   });
 
-/* ---------------------------------- SHOW ---------------------------------- */
+/* ------------------------------ USER WORKOUTS ----------------------------- */
+
 router.get('/:userId', async (req, res) => {
     try {
-    const user = await User.findById(req.params.userId);
-    res.render("community/show.ejs", { user });
+        const workouts = await Workout.find({owner: req.params.userId});
+        const user = await User.findById(req.params.userId)
+        res.render('community/userWorkouts.ejs', {
+            workouts, user
+        })
     } catch (error) {
-        console.log(error)
+        console.log(error);
         res.redirect('/')
     }
-})
+});
 
+/* ---------------------------------- SHOW ---------------------------------- */
+
+router.get('/:userId/:workoutId', async (req, res) => {
+    try {
+        const workout = await Workout.findOne({
+            _id: req.params.workoutId,
+            owner: req.params.userId
+        });
+        if(!workout) {
+            return res.status(404).send('Workout not found')
+        };
+        res.render('community/show.ejs', { workout });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
 
 
 module.exports = router;
