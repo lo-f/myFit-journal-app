@@ -10,14 +10,16 @@
     <h1>Workout Index</h1>
     <a href="/users/<%= user._id %>/workouts/new"><button>New</button></a>
 
+
     <ul>
         <% workouts.forEach((workout) => { %>
         <li>
-            <a href="/users/<%= user._id %>/workouts/<%= workout._id %>"
-            >Workout
-            </a>
+          <a href="workouts/<%= workout._id %>"
+          ><%= workout._id %>
+        </a>
         </li>
     <% }); %>
     </ul>
+    
 </body>
 </html>

@@ -6,8 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= workout.date %></h1>
-    <p1><%= workout.time %></p1>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Show View</h1>
+
+
+
+
+
+
+
+<ul>
+    <li>Type: <%= workout.type %></li>
+    <li>Date: <%= workout.date.toDateString() %></li>
+        <% if (workout.type === 'run') { %>
+    <li>Distance: <%= workout.distance %> miles</li>
+        <% } else if (workout.type === 'weightTraining') { %>
+    <li>Weight: <%= workout.weight %> lbs</li>
+        <% } %>
+    <li>Notes: <%= workout.notes %></li>
+</ul>
+
+
+
+
 
 
 
@@ -15,9 +36,18 @@
     <a href="/users/<%= user._id %>/workouts/<%= workout._id %>/edit"><button>Edit</button></a>
     <form
         action="/users/<%= user._id %>/workouts/<%= workout._id %>?_method=DELETE"
-        method="POST"
-    >
+        method="POST">
         <button type="submit">Delete Workout</button>
     </form>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
