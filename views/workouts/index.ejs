@@ -10,12 +10,13 @@
     <h1>Workout Index</h1>
     <a href="/users/<%= user._id %>/workouts/new"><button>Add New Workout</button></a>
 
-
     <ul>
         <% workouts.forEach((workout) => { %>
         <li>
-          <a href="workouts/<%= workout._id %>"
-          ><%= workout.type %></a> - <%= workout.date.toLocaleDateString() %>
+            <a href="workouts/<%= workout._id %>">
+                <%= workout.type %>
+            </a> - 
+            <%= workout.date.toLocaleDateString() %>
         </li>
     <% }); %>
     </ul>

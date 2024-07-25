@@ -10,13 +10,14 @@
     <h1>community All Workouts view</h1>
     <ul>
         <% workouts.forEach(workout => { %>
-          <li>
-            <strong>
-                <a href="/community/<%= user._id %>/<%= workout._id %>"><%= workout.type %></a>
-            </strong> - <%= workout.date.toLocaleDateString() %>
-        </li>
-
+            <li>
+                <strong>
+                    <a href="/community/<%= user._id %>/<%= workout._id %>">
+                        <%= workout.type %>
+                    </a>
+                </strong> - <%= workout.date.toLocaleDateString() %>
+            </li>
         <% }); %>
-      </ul>
+    </ul>
 </body>
 </html>

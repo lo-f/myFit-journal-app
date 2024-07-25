@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
             users,
         })
     } catch (error) {
-        console.log(error);
         res.redirect('/')
     }
   });
@@ -27,7 +26,6 @@ router.get('/:userId', async (req, res) => {
             workouts, user
         })
     } catch (error) {
-        console.log(error);
         res.redirect('/')
     }
 });
@@ -45,7 +43,6 @@ router.get('/:userId/:workoutId', async (req, res) => {
         };
         res.render('community/show.ejs', { workout });
     } catch (error) {
-        console.log(error);
         res.redirect('/');
     }
 });

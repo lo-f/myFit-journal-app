@@ -57,15 +57,13 @@
 
     <script>
         document.getElementById('type').addEventListener('change', function() {
-        var selectedType = this.value;
+        let selectedType = this.value;
         if (selectedType === 'run') {
             document.getElementById('runFields').style.display = 'block';
             document.getElementById('weightTrainingFields').style.display = 'none';
-            document.getElementById('walkFields').style.display = 'none';
         } else if (selectedType === 'weightTraining') {
             document.getElementById('runFields').style.display = 'none';
             document.getElementById('weightTrainingFields').style.display = 'block';
-            document.getElementById('walkFields').style.display = 'none';
         } else if (selectedType === 'walk') {
             document.getElementById('runFields').style.display = 'none';
             document.getElementById('weightTrainingFields').style.display = 'none'; 
@@ -73,13 +71,12 @@
         } else {
             document.getElementById('runFields').style.display = 'none';
             document.getElementById('weightTrainingFields').style.display = 'none';
-            document.getElementById('walkFields').style.display = 'none';
         }
         });
 
         function toggleSubmitButton() {
-        var type = document.getElementById('type').value;
-        var submitButton = document.getElementById('submitButton');
+        let type = document.getElementById('type').value;
+        let submitButton = document.getElementById('submitButton');
 
         if (type !== '') {
             submitButton.style.display = 'block';

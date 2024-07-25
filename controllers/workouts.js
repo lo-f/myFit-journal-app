@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
             workouts,
         })
     } catch (error) {
-        console.log(error);
         res.redirect('/')
     }
   });
@@ -28,7 +27,16 @@ router.get('/new', async (req, res) => {
 
 /* ------------------------------- New Workout ------------------------------ */
 router.post('/', async (req, res) => {
-    const { type, duration, distance, notes, exercise, weight, sets, reps } = req.body;
+    const {
+        type,
+        duration,
+        distance,
+        notes,
+        exercise,
+        weight,
+        sets,
+        reps,
+    } = req.body;
     try {
         const currentUser = await User.findById(req.session.user._id);
         if (!currentUser) {
@@ -49,7 +57,6 @@ router.post('/', async (req, res) => {
         res.redirect(`/users/${currentUser._id}/workouts`)
 
     } catch (error) {
-        console.log(error)
         res.redirect('/')
     }
 });
@@ -62,7 +69,6 @@ router.get('/:workoutId', async (req, res) => {
         const workout = await Workout.findById(req.params.workoutId)
         res.render('workouts/show.ejs', { workout })
     } catch (error) {
-        console.log(error)
         res.redirect('/')
     }
 })
@@ -78,7 +84,6 @@ router.delete('/:workoutId', async (req, res) => {
         const workout = await Workout.findByIdAndDelete(req.params.workoutId)
         res.redirect(`/users/${currentUser._id}/workouts`)      
     } catch (error) {
-        console.log(error)
         res.redirect('/')
     }
 });
@@ -105,7 +110,6 @@ router.get('/:workoutId/edit', async (req, res) => {
           }
         res.render('workouts/edit.ejs', { workout: workout })
     } catch (error) {
-        console.log(error)
         res.redirect('/')
     }
 });
