@@ -30,6 +30,18 @@ const workoutSchema = new mongoose.Schema({
       return this.type === 'weightTraining';
     }
   },
+  sets: {
+    type: Number,
+    required: function () {
+      return this.type === 'weightTraining';
+    }
+  },
+  reps: {
+    type: Number,
+    required: function() {
+      return this.type === 'weightTraining';
+    }
+  },
   notes: String,
   owner: {
     type: mongoose.Schema.Types.ObjectId,
