@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Edit View</h1>
+    <h1>Edit Workout</h1>
     <form action="/users/<%= user._id %>/workouts/<%= workout._id %>?_method=PUT" method="POST">
         <label for="type">Type:</label>
         <select id="type" name="type">
@@ -54,24 +55,24 @@
     </form>
     
     <a href="/users/<%= user._id %>/workouts/<%= workout._id %>">Back to Workout</a>
-    
-    <script>
-        document.getElementById('type').addEventListener('change', function() {
-        let selectedType = this.value;
-        if (selectedType === 'run') {
-            document.getElementById('runFields').style.display = 'block';
-            document.getElementById('weightTrainingFields').style.display = 'none';
-        } else if (selectedType === 'weightTraining') {
-            document.getElementById('runFields').style.display = 'none';
-            document.getElementById('weightTrainingFields').style.display = 'block';
-        } else if (selectedType === 'walk') {
-            document.getElementById('runFields').style.display = 'none';
-            document.getElementById('weightTrainingFields').style.display = 'none'; 
-        } else {
-            document.getElementById('runFields').style.display = 'none';
-            document.getElementById('weightTrainingFields').style.display = 'none';
-        }
-        });
-    </script>
 </body>
-</html>
+</html> 
+
+<script>
+    document.getElementById('type').addEventListener('change', function() {
+    let selectedType = this.value;
+    if (selectedType === 'run') {
+        document.getElementById('runFields').style.display = 'block';
+        document.getElementById('weightTrainingFields').style.display = 'none';
+    } else if (selectedType === 'weightTraining') {
+        document.getElementById('runFields').style.display = 'none';
+        document.getElementById('weightTrainingFields').style.display = 'block';
+    } else if (selectedType === 'walk') {
+        document.getElementById('runFields').style.display = 'none';
+        document.getElementById('weightTrainingFields').style.display = 'none'; 
+    } else {
+        document.getElementById('runFields').style.display = 'none';
+        document.getElementById('weightTrainingFields').style.display = 'none';
+    }
+    });
+</script>

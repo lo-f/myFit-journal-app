@@ -4,19 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Show View</h1>
-
-
-
-
-
-
+    <h1><%= workout.type %> Workout</h1>
 
 <ul>
-    <li>Type: <%= workout.type %></li>
     <li>Date: <%= workout.date.toDateString() %></li>
     <% if (workout.duration) { %>
         <li>Duration: <%= workout.duration %> minutes</li>
@@ -44,28 +38,12 @@
     <li>Notes: <%= workout.notes %></li>
 </ul>
 
-
-
-
-
-
-
-
-    <a href="/users/<%= user._id %>/workouts/<%= workout._id %>/edit"><button>Edit Workout</button></a>
-    <form
-        action="/users/<%= user._id %>/workouts/<%= workout._id %>?_method=DELETE"
-        method="POST">
-        <button type="submit">Delete Workout</button>
-    </form>
-
-
-
-
-
-
-
-
-
+<a href="/users/<%= user._id %>/workouts/<%= workout._id %>/edit"><button>Edit Workout</button></a>
+<form
+    action="/users/<%= user._id %>/workouts/<%= workout._id %>?_method=DELETE"
+    method="POST">
+    <button type="submit">Delete Workout</button>
+</form>
 
 </body>
 </html>

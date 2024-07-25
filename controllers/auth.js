@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/user.js');
 
-router.get('/sign-up', (req, res) => {
-  res.render('auth/sign-up.ejs');
+router.get('/sign-up', async (req, res) => {
+  res.render('auth/sign-up.ejs', { errorMessage: null});
 });
 
 router.get('/sign-in', (req, res) => {
@@ -21,9 +21,8 @@ router.post('/sign-up', async (req, res) => {
   try {
     const userInDatabase = await User.findOne({ username: req.body.username });
     if (userInDatabase) {
-      return res.send('Username already taken.');
+      return res.render('auth/sign-up.ejs', {errorMessage: 'Username is already taken'});
     }
-  
     if (req.body.password !== req.body.confirmPassword) {
       return res.send('Password and Confirm Password must match');
     }

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign Up</title>
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
@@ -11,6 +12,13 @@
   <form action="/auth/sign-up" method="POST">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
+    <% if (errorMessage) { %>
+      <p style="color: red;"><%= errorMessage %></p>
+    <% } %>
+    <div id="usernameTakenError" style="display: none; color: red;">
+    </div>
+
+
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" required />
     <label for="confirmPassword">Confirm Password:</label>
@@ -20,7 +28,33 @@
       id="confirmPassword"
       required 
     />
+    <div id="passwordMismatchError" style="display: none; color: red;">
+      Passwords do not match. Please try again.
+    </div>
+
     <button type="submit">Sign up</button>
   </form>
 </body>
 </html>
+
+
+<script>
+const User = require('../../models/user.js');
+</script>
+<script>
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', function(event) {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      
+      if (password !== confirmPassword) {
+          event.preventDefault();
+          document.getElementById('passwordMismatchError').style.display = 'block';
+      }
+  });
+</script>
+
+
+
+
