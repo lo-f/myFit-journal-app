@@ -8,9 +8,12 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
+    <div class="hero">
     <h1>Workouts</h1>
-    <a href="/users/<%= user._id %>/workouts/new"><button>Add New Workout</button></a>
-
+    <a href="/users/<%= user._id %>/workouts/new">Add New Workout</a>
+    </div>
+    
+    <div class="workouts-grid">
     <ul>
         <% workouts.forEach((workout) => { %>
         <li>
@@ -21,6 +24,7 @@
         </li>
     <% }); %>
     </ul>
+    </div>
     
 </body>
 </html>

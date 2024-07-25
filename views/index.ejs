@@ -8,12 +8,13 @@
 </head>
 <body>
   <%- include('./partials/_navbar.ejs') %>
-
+  <div class="hero">
   <% if (user) { %>
     <h1>Welcome to the myFit, <%= user.username %>!</h1>
   <% } else { %>
     <h1>myFit</h1>
     <h2>a fitness journaling app</h2>
   <% } %>
+  </div>
 </body>
 </html>

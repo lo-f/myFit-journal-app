@@ -1,11 +1,86 @@
-/* styles.css */
-
-.body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
-    display: flex
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+.hero h1 {
+    margin-bottom: 30px
+}
+
+.hero a {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.sidekick {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+.navbar {
+    padding: 10px;
+    border: 10px solid red;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 50px
+}
+
+.navbar-menu li{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.workouts-grid {
+    padding: 40px;
+}
+
+.workouts-grid ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.workouts-grid li{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border: 2px solid black;
+    gap: 10px;
 }
 
 form {
@@ -46,6 +121,12 @@ select {
     background-size: 0.65em auto, 100%;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 textarea {
     height: 100px;
     resize: vertical;
@@ -69,7 +150,6 @@ a:hover {
     background-color: #45a049;
 }
 
-/* Specific field visibility based on selected type */
 #runFields,
 #weightTrainingFields,
 #walkFields {
