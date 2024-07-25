@@ -18,11 +18,27 @@
 <ul>
     <li>Type: <%= workout.type %></li>
     <li>Date: <%= workout.date.toDateString() %></li>
+    <% if (workout.duration) { %>
+        <li>Duration: <%= workout.duration %> minutes</li>
+    <% } %>
         <% if (workout.type === 'run') { %>
     <li>Distance: <%= workout.distance %> miles</li>
-        <% } else if (workout.type === 'weightTraining') { %>
-    <li>Weight: <%= workout.weight %> lbs</li>
-        <% } %>
+    <li>Average pace: 
+        <% 
+        let totalSeconds = workout.duration * 60;
+        let paceSeconds = Math.round(totalSeconds / workout.distance); 
+        
+        let minutes = Math.floor(paceSeconds / 60); 
+        let seconds = paceSeconds % 60; 
+        
+        let formattedTime = `${minutes}' ${seconds}"`;
+        %>
+        <%= formattedTime %> per mile
+    </li>
+    <% } else if (workout.type === 'weightTraining') { %>
+        <li>Exercise: <%= workout.exercise %></li>
+        <li>Weight: <%= workout.weight %> lbs</li>
+    <% } %>
     <li>Notes: <%= workout.notes %></li>
 </ul>
 
@@ -33,7 +49,7 @@
 
 
 
-    <a href="/users/<%= user._id %>/workouts/<%= workout._id %>/edit"><button>Edit</button></a>
+    <a href="/users/<%= user._id %>/workouts/<%= workout._id %>/edit"><button>Edit Workout</button></a>
     <form
         action="/users/<%= user._id %>/workouts/<%= workout._id %>?_method=DELETE"
         method="POST">

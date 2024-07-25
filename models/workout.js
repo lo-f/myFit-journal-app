@@ -11,10 +11,17 @@ const workoutSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  duration: Number,
   distance: {
     type: Number,
     required: function() {
       return this.type === 'run';
+    }
+  },
+  exercise: {
+    type: String,
+    required: function () {
+      return this.type === 'weightTraining';
     }
   },
   weight: {

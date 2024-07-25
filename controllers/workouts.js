@@ -28,7 +28,7 @@ router.get('/new', async (req, res) => {
 
 /* ------------------------------- New Workout ------------------------------ */
 router.post('/', async (req, res) => {
-    const { type, distance, notes, weight } = req.body;
+    const { type, duration, distance, notes, exercise, weight } = req.body;
     try {
         const currentUser = await User.findById(req.session.user._id);
         if (!currentUser) {
@@ -36,7 +36,9 @@ router.post('/', async (req, res) => {
         };
         const newWorkout = new Workout({
             type,
+            duration,
             distance: type === 'run' ? parseFloat(distance) : undefined,
+            exercise: type === 'weightTraining' ? (exercise) : undefined,
             weight: type === 'weightTraining' ? parseFloat(weight) : undefined,
             notes,
             owner: currentUser

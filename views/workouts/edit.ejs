@@ -11,10 +11,15 @@
     <form action="/users/<%= user._id %>/workouts/<%= workout._id %>?_method=PUT" method="POST">
         <label for="type">Type:</label>
         <select id="type" name="type">
+          <option value="" disabled selected>Workout Type</option>
           <option value="run" <%= workout.type === 'run' ? 'selected' : '' %>>Run</option>
           <option value="weightTraining" <%= workout.type === 'weightTraining' ? 'selected' : '' %>>weightTraining</option>
           <option value="walk" <%= workout.type === 'walk' ? 'selected' : '' %>>Walk</option>
         </select>
+        <br>
+
+        <label for="duration">Duration (min):</label>
+        <input type="number" id="duration" name="duration" value="<%= workout.duration %>">
         <br>
     
         <div id="runFields" style="display: <%= workout.type === 'run' ? 'block' : 'none' %>;">
@@ -24,11 +29,14 @@
         </div>
     
         <div id="weightTrainingFields" style="display: <%= workout.type === 'weightTraining' ? 'block' : 'none' %>;">
+          <label for="exercise">Exercise:</label>
+            <input type="text" id="exercise" name="exercise" value="<%= workout.type === 'weightTraining' ? workout.exercise : '' %>">
+          
           <label for="weight">Weight (lbs):</label>
-          <input type="number" id="weight" name="weight" value="<%= workout.type === 'weightTraining' ? workout.weight : '' %>">
+            <input type="number" id="weight" name="weight" value="<%= workout.type === 'weightTraining' ? workout.weight : '' %>">
           <br>
         </div>
-    
+  
         <label for="notes">Notes:</label>
         <textarea id="notes" name="notes"><%= workout.notes %></textarea>
         <br>
@@ -36,21 +44,28 @@
         <button type="submit">Update Workout</button>
     </form>
     
-    <a href="/users/<%= user._id %>/workouts/<%= workout._id %>">Back to Workouts</a>
+    <a href="/users/<%= user._id %>/workouts/<%= workout._id %>">Back to Workout</a>
     
     <script>
         document.getElementById('type').addEventListener('change', function() {
-          var selectedType = this.value;
-          if (selectedType === 'run') {
+        var selectedType = this.value;
+        if (selectedType === 'run') {
             document.getElementById('runFields').style.display = 'block';
             document.getElementById('weightTrainingFields').style.display = 'none';
-          } else if (selectedType === 'weightTraining') {
+            document.getElementById('walkFields').style.display = 'none';
+        } else if (selectedType === 'weightTraining') {
             document.getElementById('runFields').style.display = 'none';
             document.getElementById('weightTrainingFields').style.display = 'block';
-          } else {
+            document.getElementById('walkFields').style.display = 'none';
+        } else if (selectedType === 'walk') {
+            document.getElementById('runFields').style.display = 'none';
+            document.getElementById('weightTrainingFields').style.display = 'none'; 
+            document.getElementById('walkFields').style.display = 'block';
+        } else {
             document.getElementById('runFields').style.display = 'none';
             document.getElementById('weightTrainingFields').style.display = 'none';
-          }
+            document.getElementById('walkFields').style.display = 'none';
+        }
         });
     </script>
 </body>

@@ -9,12 +9,16 @@
     <%- include('../partials/_navbar.ejs') %>
     <form action="/users/<%= user._id %>/workouts" method="POST">
         <label for="type">Type:</label>
-        <select id="type" name="type">
+        <select id="type" name="type" onchange="toggleSubmitButton()">
             <option value="" disabled selected>Workout Type</option>
             <option value="run">Run</option>
             <option value="weightTraining">Weightlifting</option>
             <option value="walk">Walk</option>
         </select>
+        <br>
+
+        <label for="duration">Duration (min):</label>
+        <input type="number" id="duration" name="duration">
         <br>
 
         <div id="runFields" style="display: none;">
@@ -24,6 +28,9 @@
         </div>
 
         <div id="weightTrainingFields" style="display: none;">
+            <label for="exercise">Exercise:</label>
+            <input type="text" id="exercise" name="exercise">
+
             <label for="weight">Weight (lbs):</label>
             <input type="number" id="weight" name="weight">
             <br>
@@ -33,8 +40,10 @@
         <textarea id="notes" name="notes"></textarea>
         <br>
 
-        <button type="submit">Log Workout</button>
+        <button type="submit" id="submitButton" style="display: none;">Add Workout</button>
     </form>
+
+    <a href="/users/<%= user._id %>/workouts">Back to Workouts</a>
 
     <script>
         document.getElementById('type').addEventListener('change', function() {
@@ -42,14 +51,32 @@
         if (selectedType === 'run') {
             document.getElementById('runFields').style.display = 'block';
             document.getElementById('weightTrainingFields').style.display = 'none';
+            document.getElementById('walkFields').style.display = 'none';
         } else if (selectedType === 'weightTraining') {
             document.getElementById('runFields').style.display = 'none';
             document.getElementById('weightTrainingFields').style.display = 'block';
+            document.getElementById('walkFields').style.display = 'none';
+        } else if (selectedType === 'walk') {
+            document.getElementById('runFields').style.display = 'none';
+            document.getElementById('weightTrainingFields').style.display = 'none'; 
+            document.getElementById('walkFields').style.display = 'block';
         } else {
             document.getElementById('runFields').style.display = 'none';
             document.getElementById('weightTrainingFields').style.display = 'none';
+            document.getElementById('walkFields').style.display = 'none';
         }
         });
+
+        function toggleSubmitButton() {
+        var type = document.getElementById('type').value;
+        var submitButton = document.getElementById('submitButton');
+
+        if (type !== '') {
+            submitButton.style.display = 'block';
+        } else {
+            submitButton.style.display = 'none';
+        }
+    }
     </script>
 
 
