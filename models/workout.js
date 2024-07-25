@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const workoutSchema = new mongoose.Schema({
   type: {
     type: String,
-    enum: ['run', 'weightTraining', ],
+    enum: ['run', 'weightTraining', 'walk'],
     required: true
   },
   date: {

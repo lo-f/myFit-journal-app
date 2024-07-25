@@ -10,6 +10,7 @@
     <form action="/users/<%= user._id %>/workouts" method="POST">
         <label for="type">Type:</label>
         <select id="type" name="type">
+            <option value="" disabled selected>Workout Type</option>
             <option value="run">Run</option>
             <option value="weightTraining">Weightlifting</option>
             <option value="walk">Walk</option>
