@@ -14,7 +14,7 @@
         <select id="type" name="type">
           <option value="" disabled selected>Workout Type</option>
           <option value="run" <%= workout.type === 'run' ? 'selected' : '' %>>Run</option>
-          <option value="weightTraining" <%= workout.type === 'weightTraining' ? 'selected' : '' %>>weightTraining</option>
+          <option value="weightTraining" <%= workout.type === 'weightTraining' ? 'selected' : '' %>>Weightlifting</option>
           <option value="walk" <%= workout.type === 'walk' ? 'selected' : '' %>>Walk</option>
         </select>
         <br>
@@ -25,7 +25,7 @@
     
         <div id="runFields" style="display: <%= workout.type === 'run' ? 'block' : 'none' %>;">
           <label for="distance">Distance (miles):</label>
-          <input type="number" id="distance" name="distance"
+          <input type="text" id="distance" name="distance"
           pattern="[0-9]*[.]?[0-9]+" placeholder="number"
           value="<%= workout.type === 'run' ? workout.distance : '' %>">
           <br>

@@ -16,11 +16,24 @@
         <ul>
         <% workouts.forEach(workout => { %>
             <li>
-                <strong>
-                    <a href="/community/<%= user._id %>/<%= workout._id %>">
-                        <%= workout.type %>
+                <a href="/community/<%= user._id %>/<%= workout._id %>" style="font-size: 550%;">
+                    <% if (workout.type === 'run') { %>
+                        🏃
+                    <% } else if (workout.type === 'weightTraining') { %>
+                        🏋️
+                    <% } else if (workout.type === 'walk') { %>
+                        🚶‍➡️
+                    <% } %>
                     </a>
-                </strong> - <%= workout.date.toLocaleDateString() %>
+                    <% if (workout.type === 'run') { %>
+                        Run
+                    <% } else if (workout.type === 'weightTraining') { %>
+                        Strenth
+                    <% } else if (workout.type === 'walk') { %>
+                        Walk
+                    <% } %>
+                    Workout - 
+                    <%= workout.date.toLocaleDateString() %>
             </li>
         <% }); %>
     </ul>

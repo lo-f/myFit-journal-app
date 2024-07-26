@@ -1,13 +1,18 @@
 body {
+    background-image: url('./negative-space-fitness-weights-trainer-blue-1062x708.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    height: auto;
+    min-height: 1080px;
 }
 
 .hero {
@@ -15,11 +20,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    min-height: 200px;
+    height: auto;
     padding: 20px;
     text-align: center;
     margin: 0;
     font-size: 175%;
+    width: 100vw;
+    box-sizing: border-box;
+    background-color: #fff;
 }
 
 .hero h1 {
@@ -46,7 +55,9 @@ body {
 
 .navbar {
     padding: 10px;
-    border: 10px solid red;
+    border: 5px solid red;
+    width: 100vw;
+    box-sizing: border-box;
 }
 
 .navbar-menu {
@@ -54,7 +65,8 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 50px
+    gap: 10px;
+    justify-content: flex-end;
 }
 
 .navbar-menu li{
@@ -68,6 +80,8 @@ body {
 
 .workouts-grid {
     padding: 40px;
+    background-color: #fff;
+    opacity: 90%;
 }
 
 .workouts-grid ul {
@@ -75,16 +89,22 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 40px;
     grid-row-gap: 20px;
-    padding: 0;
     margin: 0;
+    padding: 0px 40px;
+    align-items: center;
+    width: 100vw;
+    box-sizing: border-box;
 }
 
 .workouts-grid li{
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 20px 40px;
     border: 2px solid black;
     gap: 10px;
+    align-items: center;
+    height: auto;
+    
 }
 
 form {
@@ -152,7 +172,7 @@ ul {
 
 .showUL {
     padding: 20px 40px;
-    background: white;
+    background: rgb(114, 39, 39);
     font-size: large;
 }
 

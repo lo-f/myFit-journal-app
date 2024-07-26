@@ -11,10 +11,31 @@
   <div class="hero">
   <% if (user) { %>
     <h1>Welcome to the myFit, <%= user.username %>!</h1>
+    <h2 id="quote"><%= quote %></h2>
+    <a href="/users/<%= user._id %>/workouts/new">Add New Workout</a>
   <% } else { %>
     <h1>myFit</h1>
     <h2>a fitness journaling app</h2>
   <% } %>
   </div>
 </body>
+
+
+<style>
+  #quote {
+    opacity: 0;
+    transition: opacity 3s;
+  }
+  #quote.fade-in {
+    opacity: 2;
+  }
+</style>
+
+
+<script>
+  window.onload = function () {
+    document.getElementById('quote').classList.add('fade-in')
+  }
+</script>
+
 </html>

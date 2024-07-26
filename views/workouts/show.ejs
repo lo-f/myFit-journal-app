@@ -9,7 +9,7 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <div class="sidekick">
-        <h1><%= user.username %>'s <% if (workout.type === 'run') { %>
+        <h1><% if (workout.type === 'run') { %>
             🏃
             <% } else if (workout.type === 'weightTraining') { %>
                 🏋️

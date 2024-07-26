@@ -8,7 +8,7 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <div class="hero">
+    <div class="sidekick">
     <h1>Workouts</h1>
     <a href="/users/<%= user._id %>/workouts/new">Add New Workout</a>
     </div>
@@ -17,9 +17,23 @@
     <ul>
         <% workouts.forEach((workout) => { %>
         <li>
-            <a href="workouts/<%= workout._id %>">
-                <%= workout.type %>
-            </a> - 
+            <a href="workouts/<%= workout._id %>" style="font-size: 550%;">
+            <% if (workout.type === 'run') { %>
+                🏃
+            <% } else if (workout.type === 'weightTraining') { %>
+                🏋️
+            <% } else if (workout.type === 'walk') { %>
+                🚶‍➡️
+            <% } %>
+            </a>
+            <% if (workout.type === 'run') { %>
+                Run
+            <% } else if (workout.type === 'weightTraining') { %>
+                Strenth
+            <% } else if (workout.type === 'walk') { %>
+                Walk
+            <% } %>
+            Workout - 
             <%= workout.date.toLocaleDateString() %>
         </li>
     <% }); %>

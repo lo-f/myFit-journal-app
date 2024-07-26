@@ -16,9 +16,10 @@
         <ul>
             <% users.forEach((user) => { %>
             <li>
-                <a href="/community/<%= user._id %>"
-                    ><%= user.username %>
+                <a href="/community/<%= user._id %>" style="font-size: 300%;"
+                    ><%= (user.username).charAt(0).toUpperCase() %>
                 </a>
+                <p2 style="font-size: large; margin: 5px 0px 0px 0px; max-height: 15px"><%= (user.username) %></p>
             </li>
         <% }); %>
         </ul>

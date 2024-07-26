@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         const workouts = await Workout.find({ owner: req.session.user._id });
         res.render('workouts/index.ejs', {
             workouts,
-        })
+            })
     } catch (error) {
         res.redirect('/')
     }

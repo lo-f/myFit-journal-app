@@ -15,6 +15,7 @@ const communityController = require('./controllers/community.js')
 const workoutsController = require('./controllers/workouts.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const isSignedIn = require('./middleware/is-signed-in.js');
+const quotes = require('./assets/quotes.js')
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -39,8 +40,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* --------------------------------- ROUTES --------------------------------- */
 app.get('/', (req, res) => {
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   res.render('index.ejs', {
     user: req.session.user,
+    quote: randomQuote,    
   });
 });
 
