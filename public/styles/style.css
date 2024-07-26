@@ -1,18 +1,18 @@
 body {
     background-image: url('./negative-space-fitness-weights-trainer-blue-1062x708.jpg');
-    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 150%;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
     height: auto;
-    min-height: 1080px;
 }
 
 .hero {
@@ -28,7 +28,8 @@ body {
     font-size: 175%;
     width: 100vw;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #ffffffb7;
+    opacity: 0.9;
 }
 
 .hero h1 {
@@ -55,9 +56,11 @@ body {
 
 .navbar {
     padding: 10px;
-    border: 5px solid red;
+    border-bottom: 5px solid rgba(255, 0, 0, 0.692);
     width: 100vw;
     box-sizing: border-box;
+    background-color: #505050;
+    opacity: 0.9;
 }
 
 .navbar-menu {
@@ -80,8 +83,9 @@ body {
 
 .workouts-grid {
     padding: 40px;
-    background-color: #fff;
+    background-color: #ffffff;
     opacity: 90%;
+    margin: 10px;
 }
 
 .workouts-grid ul {
@@ -92,7 +96,7 @@ body {
     margin: 0;
     padding: 0px 40px;
     align-items: center;
-    width: 100vw;
+    width: 90vw;
     box-sizing: border-box;
 }
 
@@ -100,11 +104,11 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
-    border: 2px solid black;
     gap: 10px;
     align-items: center;
     height: auto;
-    
+    background-color: #ffffff;
+    opacity: 1;
 }
 
 form {
@@ -172,8 +176,13 @@ ul {
 
 .showUL {
     padding: 20px 40px;
-    background: rgb(114, 39, 39);
+    background: rgb(180, 180, 180);
     font-size: large;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
 }
 
 textarea {
@@ -185,8 +194,8 @@ button[type="submit"],
 a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: rgba(255, 0, 0, 0.513);
+    color: #fdfdfd;
     text-decoration: none;
     border: none;
     border-radius: 4px;
@@ -196,7 +205,7 @@ a {
 
 button[type="submit"]:hover,
 a:hover {
-    background-color: #45a049;
+    background-color: rgba(255, 0, 0, 0.257);
 }
 
 #runFields,

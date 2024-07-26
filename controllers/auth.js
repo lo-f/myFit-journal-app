@@ -21,7 +21,7 @@ router.post('/sign-up', async (req, res) => {
   try {
     const userInDatabase = await User.findOne({ username: req.body.username });
     if (userInDatabase) {
-      return res.render('auth/sign-up.ejs', {errorMessage: 'Username is already taken'});
+      return res.render('auth/sign-up.ejs', {errorMessage: 'Username is already taken', username: userInDataBase});
     }
     if (req.body.password !== req.body.confirmPassword) {
       return res.send('Password and Confirm Password must match');

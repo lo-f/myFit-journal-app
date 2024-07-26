@@ -16,6 +16,7 @@
       <p style="color: red;"><%= errorMessage %></p>
     <% } %>
     <div id="usernameTakenError" style="display: none; color: red;">
+      Username taken
     </div>
 
 
@@ -32,7 +33,7 @@
       Passwords do not match. Please try again.
     </div>
 
-    <button type="submit">Sign up</button>
+    <button onclick="fadeOutDiv()" type="submit">Sign up</button>
   </form>
 </body>
 </html>
@@ -43,6 +44,18 @@ const User = require('../../models/user.js');
 </script>
 <script>
   const form = document.querySelector('form');
+
+  form.addEventListener('submit', async function(event) {
+    const errMessage = document.getElementById('usernameTakenError');
+    if (username) {
+      event.preventDefault();
+      errMessage.style.display = 'block';
+      setTimeout(() => {
+                errMessage.style.display = 'none';
+            }, 3000);
+    }
+  })
+
 
   form.addEventListener('submit', function(event) {
       const password = document.getElementById('password').value;
