@@ -7,6 +7,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .hero {
@@ -18,15 +19,17 @@ body {
     padding: 20px;
     text-align: center;
     margin: 0;
+    font-size: 175%;
 }
 
 .hero h1 {
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 .hero a {
     display: inline-block;
     padding: 10px 20px;
+    font-size: 100%
 }
 
 .sidekick {
@@ -38,6 +41,7 @@ body {
     padding: 10px;
     text-align: center;
     margin: 0;
+    font-size: 150%;
 }
 
 .navbar {
@@ -85,11 +89,26 @@ body {
 
 form {
     background-color: #fff;
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
+}
+
+.sets-and-reps {
+    display: inline-flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+}
+
+.update-delete {
+    display: inline-flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    align-items: center;
+    padding: 0px;
 }
 
 label {
@@ -121,10 +140,20 @@ select {
     background-size: 0.65em auto, 100%;
 }
 
+p {
+    font-size: xx-large;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+.showUL {
+    padding: 20px 40px;
+    background: white;
+    font-size: large;
 }
 
 textarea {

@@ -9,18 +9,34 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <div class="sidekick">
-    <h1>Community Show Workout View</h1>
+    <h1><%= user.username %>'s <% if (workout.type === 'run') { %>
+        🏃
+        <% } else if (workout.type === 'weightTraining') { %>
+            🏋️
+        <% } else if (workout.type === 'walk') { %>
+            🚶‍➡️
+            <% } %>
+        Workout</h1>
     </div>
 
-    <ul>
-        <li>Type: <%= workout.type %></li>
-        <li>Date: <%= workout.date.toDateString() %></li>
+    <ul class="showUL">
+        <li><strong>
+            <% if (workout.type === 'run') { %>
+                Run Workout
+                <% } else if (workout.type === 'weightTraining') { %>
+                    Strength Training
+                <% } else if (workout.type === 'walk') { %>
+                    Walk
+                    <% } %>
+            </strong>
+        </li>
+        <li><strong>Date:</strong> <%= workout.date.toDateString() %></li>
         <% if (workout.duration) { %>
-            <li>Duration: <%= workout.duration %> minutes</li>
+            <li><strong>Duration:</strong> <%= workout.duration %> minutes</li>
         <% } %>
         <% if (workout.type === 'run') { %>
-        <li>Distance: <%= workout.distance %> miles</li>
-        <li>Average pace: 
+        <li><strong>Distance:</strong> <%= workout.distance %> miles</li>
+        <li><strong>Average pace:</strong> 
             <% 
             let totalSeconds = workout.duration * 60;
             let paceSeconds = Math.round(totalSeconds / workout.distance); 
@@ -33,12 +49,14 @@
             <%= formattedTime %> per mile
         </li>
             <% } else if (workout.type === 'weightTraining') { %>
-                <li>Exercise: <%= workout.exercise %></li>
-                <li>Weight: <%= workout.weight %> lbs</li>
-                <li>Sets: <%= workout.sets %></li>
-                <li>Reps: <%= workout.reps %></li>
+                <li><strong>Exercise:</strong> <%= workout.exercise %></li>
+                <div class="sets-and-reps">
+                <li><strong>Weight:</strong> <%= workout.weight %> lbs</li>
+                <li><strong>Sets:</strong> <%= workout.sets %></li>
+                <li><strong>Reps:</strong> <%= workout.reps %></li>
+                </div>
             <% } %>
-        <li>Notes: <%= workout.notes %></li>
+        <li><strong>Notes:</strong> <%= workout.notes %></li>
     </ul>
 
 
