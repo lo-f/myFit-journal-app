@@ -38,10 +38,13 @@ router.get('/:userId/:workoutId', async (req, res) => {
             _id: req.params.workoutId,
             owner: req.params.userId
         });
+        const user = await User.findById({
+            _id: req.params.userId
+        })
         if(!workout) {
             return res.status(404).send('Workout not found')
         };
-        res.render('community/show.ejs', { workout });
+        res.render('community/show.ejs', { workout, user });
     } catch (error) {
         res.redirect('/');
     }
