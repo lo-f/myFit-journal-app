@@ -9,14 +9,14 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <div class="sidekick">
-    <h1>community index</h1>
+    <h1>Community</h1>
     </div>
 
     <div class="workouts-grid">
         <ul>
             <% users.forEach((user) => { %>
             <li>
-                <a href="/community/<%= user._id %>" style="font-size: 300%;"
+                <a class="user-buttons" href="/community/<%= user._id %>" style="font-size: 300%;"
                     ><%= (user.username).charAt(0).toUpperCase() %>
                 </a>
                 <p2 style="font-size: large; margin: 5px 0px 0px 0px; max-height: 15px"><%= (user.username) %></p>

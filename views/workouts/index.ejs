@@ -17,7 +17,7 @@
     <ul>
         <% workouts.forEach((workout) => { %>
         <li>
-            <a href="workouts/<%= workout._id %>" style="font-size: 550%;">
+            <a class="workout-buttons" href="workouts/<%= workout._id %>" style="font-size: 550%;">
             <% if (workout.type === 'run') { %>
                 🏃
             <% } else if (workout.type === 'weightTraining') { %>
