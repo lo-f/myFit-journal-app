@@ -4,17 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Fugaz+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Fugaz+One&family=Spinnaker&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Fugaz+One&family=Spinnaker&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
   <%- include('./partials/_navbar.ejs') %>
   <div class="hero">
   <% if (user) { %>
-    <h1>Welcome to the myFit, <%= user.username %>!</h1>
-    <h2 id="quote"><%= quote %></h2>
+    <h1>
+      <span style="font-family: Spinnaker;"> Welcome to the</span> 
+      <span style="font-family: Fugaz One, sans-serif;"><span style="color: white">my</span><span style="color: rgba(255, 0, 0, 0.684)">Fit</span></span>
+      <span style="font-family: Spinnaker;">, <%= user.username %>!</span>
+    </h1>
+    <h2 id="quote" style="font-family: Caveat; font-weight: 500; font-size: 125%"><%= quote %></h2>
     <a href="/users/<%= user._id %>/workouts/new">Add New Workout</a>
   <% } else { %>
-    <h1>myFit</h1>
+    <h1><span style="font-family: Fugaz One, sans-serif;"><span style="color: white">my</span><span style="color: rgba(255, 0, 0, 0.684)">Fit</span></span></h1>
     <h2>a fitness journaling app</h2>
   <% } %>
   </div>

@@ -42,7 +42,7 @@ router.post('/sign-in', async (req, res) => {
   try {
     const userInDatabase = await User.findOne({ username: req.body.username });
     if (!userInDatabase) {
-      return res.send('Login failed. Please try again.');
+      return res.render('auth/sign-in.ejs', {errorMessage: 'Invalid username'});
     }
 
     const validPassword = bcrypt.compareSync(
@@ -50,7 +50,7 @@ router.post('/sign-in', async (req, res) => {
       userInDatabase.password
     );
     if (!validPassword) {
-      return res.send('Login failed. Please try again.');
+      return res.render('auth/sign-in.ejs', {passwordError: 'Invalid password'})
     }
 
     req.session.user = {
