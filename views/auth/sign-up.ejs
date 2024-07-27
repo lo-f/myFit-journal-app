@@ -14,13 +14,12 @@
   <%- include('../partials/_navbar.ejs') %>
   <h1>Create a new account!</h1>
   <form action="/auth/sign-up" method="POST">
+    
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
-
     <% if (typeof errorMessage !== 'undefined') { %>
       <div id="error-message" class="error-message"><%= errorMessage %></div>
     <% } %>
-
 
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" required />
@@ -79,7 +78,6 @@ const User = require('../../models/user.js');
         }
 
         hideErrorMessage();
-
 
 </script>
 
