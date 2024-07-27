@@ -28,8 +28,7 @@ body {
     font-size: 175%;
     width: 100vw;
     box-sizing: border-box;
-    background-color: #ffffffb7;
-    opacity: 0.9;
+    background-color: #d1d1d1;
 }
 
 .hero h1 {
@@ -56,11 +55,10 @@ body {
 
 .navbar {
     padding: 10px;
-    border-bottom: 10px solid rgba(255, 0, 0, 0.692);
+    border-bottom: 10px solid #D4B5A5;
     width: 100vw;
     box-sizing: border-box;
-    background-color: #505050;
-    opacity: 0.9;
+    background-color: #505050a3;
 }
 
 .navbar-menu {
@@ -75,16 +73,19 @@ body {
 .navbar-menu li{
     list-style-type: none;
     margin: 0;
-    padding: 10px;
+    padding: 0px;
     display: inline-flex;
     flex-direction: row;
     gap: 100px;
 }
 
+.nav-button {
+    background-color: #50505000;
+}
+
 .workouts-grid {
     padding: 40px;
-    background-color: #ffffff;
-    opacity: 90%;
+    background-color: #ffffffa7;
     margin: 10px;
 }
 
@@ -107,8 +108,7 @@ body {
     gap: 10px;
     align-items: center;
     height: auto;
-    background-color: #ffffff;
-    opacity: 1;
+    background-color: #ffffffc0;
 }
 
 form {
@@ -194,7 +194,7 @@ button[type="submit"],
 a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: rgba(255, 0, 0, 0.513);
+    background-color: rgba(255, 0, 0, 0.684);
     color: #fdfdfd;
     text-decoration: none;
     border: none;
@@ -209,7 +209,7 @@ a {
 
 button[type="submit"]:hover,
 a:hover {
-    background-color: rgba(255, 0, 0, 0.684);
+    background-color: rgba(255, 0, 0, 0.513);
 }
 
 #runFields,

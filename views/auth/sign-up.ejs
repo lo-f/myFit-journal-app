@@ -12,12 +12,10 @@
   <form action="/auth/sign-up" method="POST">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
-    <% if (errorMessage) { %>
-      <p style="color: red;"><%= errorMessage %></p>
+
+    <% if (typeof errorMessage !== 'undefined') { %>
+      <div id="error-message" class="error-message"><%= errorMessage %></div>
     <% } %>
-    <div id="usernameTakenError" style="display: none; color: red;">
-      Username taken
-    </div>
 
 
     <label for="password">Password:</label>
@@ -29,43 +27,58 @@
       id="confirmPassword"
       required 
     />
-    <div id="passwordMismatchError" style="display: none; color: red;">
-      Passwords do not match. Please try again.
+    <% if (typeof passwordError !== 'undefined') { %>
+    <div class="passwordMismatchError" id="passwordMismatchError">
+      <%= passwordError %>
     </div>
+    <% } %>
 
     <button onclick="fadeOutDiv()" type="submit">Sign up</button>
   </form>
 </body>
 </html>
 
+<style>
+  .error-message, .passwordMismatchError{
+      color: red;
+      font-weight: bold;
+      transition: opacity 0.5s ease-out;
+  }
+  .hide {
+      opacity: 0;
+  }
+</style>
 
 <script>
 const User = require('../../models/user.js');
 </script>
 <script>
   const form = document.querySelector('form');
+  async function hideUsernameErrorMessage() {
+            const errorMessageElement = document.getElementById('error-message');
+            if (errorMessageElement) {
+                setTimeout(() => {
+                    errorMessageElement.classList.add('hide');
+                }, 2000);
+            }
+        }
 
-  form.addEventListener('submit', async function(event) {
-    const errMessage = document.getElementById('usernameTakenError');
-    if (username) {
-      event.preventDefault();
-      errMessage.style.display = 'block';
-      setTimeout(() => {
-                errMessage.style.display = 'none';
-            }, 3000);
-    }
-  })
-
-
-  form.addEventListener('submit', function(event) {
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
       
-      if (password !== confirmPassword) {
-          event.preventDefault();
-          document.getElementById('passwordMismatchError').style.display = 'block';
-      }
-  });
+        hideUsernameErrorMessage();
+
+  async function hideErrorMessage() {
+            const errorMessageElement = document.getElementById('passwordMismatchError');
+            if (errorMessageElement) {
+                setTimeout(() => {
+                    errorMessageElement.classList.add('hide');
+                }, 2000);
+            }
+        }
+
+      
+        hideErrorMessage();
+
+
 </script>
 
 

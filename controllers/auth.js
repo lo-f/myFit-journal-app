@@ -21,10 +21,10 @@ router.post('/sign-up', async (req, res) => {
   try {
     const userInDatabase = await User.findOne({ username: req.body.username });
     if (userInDatabase) {
-      return res.render('auth/sign-up.ejs', {errorMessage: 'Username is already taken', username: userInDataBase});
+      return res.render('auth/sign-up.ejs', {errorMessage: 'Username is already taken'});
     }
     if (req.body.password !== req.body.confirmPassword) {
-      return res.send('Password and Confirm Password must match');
+      return res.render('auth/sign-up.ejs', {passwordError: 'Password and Confirm Password must match'})
     }
   
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
