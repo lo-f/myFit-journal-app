@@ -3,6 +3,8 @@
  # myFit Journal App
 myFit: a basic journaling CRUD app using MEN stack. It allows users to log or edit three kinds of workouts including run, weightlifting, walk to keep track of their physical activity. Users can also see other users' workouts but cannot edit or delete them.
 
+[![My Skills](https://skillicons.dev/icons?i=js,css,mongodb,express,nodejs)](https://skillicons.dev)
+
 ## Getting Started
 Visit [myFit](https://myfit-journal-app-f1d5b35a8543.herokuapp.com/) and sign up to log your first workout! The app uses basic authentication.
 
@@ -13,10 +15,10 @@ App planning [here](https://trello.com/invite/b/66995e9a174953a0de6879d7/ATTI029
 
 ## Technologies Used
 - JavaScript
+- CSS
 - MongoDB
 - Express
 - Node
-- CSS
 
 ## Next Steps:
 - add more workout types
